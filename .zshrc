@@ -85,9 +85,12 @@ LANG=ko_KR.UTF-8;export LANG
 alias nn='cd /Users/doortts/dev/repositories/git/devnote'
 alias n4='cd /Users/doortts/dev/repositories/git/nforge4'
 alias god='cd /Users/doortts/Dropbox'
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all "
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gs="git status"
 alias gc="git commit"
+alias grc="git rebase --continue"
+alias grs="git rebase --skip"
+alias gra="git rebase --abort"
 alias act="/Users/doortts/dev/play2/activator"
 alias http='python -m SimpleHTTPServer 8080 &'
 

@@ -182,73 +182,15 @@ au! BufWritePost      *.snippet                                       call Reloa
 au BufWinEnter *.txt if &ft == 'help' | wincmd H | endif
 " " }}}
 
-" Scripts and Bundles " {{{
-filetype off
-let $GIT_SSL_NO_VERIFY = 'true'
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-" Programming
-Bundle 'jQuery'
-Bundle 'rails.vim'
-Bundle 'ruby.vim'
-Bundle 'vim-coffee-script'
-
-" Colorscheme
-Bundle 'railscasts'
-if has('gui_running')
-	colorscheme railscasts
-endif
-
-
-" Snippets
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
-Bundle 'garbas/vim-snipmate'
-
-" Syntax highlight
-Bundle 'cucumber.zip'
-Bundle 'Markdown'
-Bundle 'node.js'
-
-
-" (HT|X)ml tool
-Bundle 'ragtag.vim'
-
-" Utility
-
-Bundle 'tlib'
-Bundle 'tComment'
-nnoremap // :TComment<CR>
-vnoremap // :TComment<CR>
-
-" FuzzyFinder
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" FuF customisations "{{{
-let g:fuf_modesDisable = []
-nnoremap <leader>ff :FufFile<CR>
-
-" NERDTree
-Bundle "The-NERD-tree"
-map <C-e> :NERDTreeToggle <CR>
-
-" " }}}
-
-filetype plugin indent on      " Automatically detect file types.
-" " }}}
-
-Bundle "fugitive.vim"
-
-"My Bundles
-Bundle 'https://github.com/Lokaltog/vim-powerline.git'
-
 "language en_US.UTF-8
 set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
 colorscheme molokai
 hi Comment  guifg=#80a0ff ctermfg=darkgray
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+autocmd Filetype gitcommit setlocal spell textwidth=72
