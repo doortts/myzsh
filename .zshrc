@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -79,27 +79,31 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/doortts/node_modules/vows/bin:/Users/doortts/dev/play-2.1/
 LANG=ko_KR.UTF-8;export LANG
+LESS="-iR";export LESS
 
-alias nn='cd /Users/doortts/dev/repositories/git/devnote'
-alias n4='cd /Users/doortts/dev/repositories/git/nforge4'
 alias god='cd /Users/doortts/Dropbox'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gs="git status"
 alias gc="git commit"
+alias gca="git commit --amend"
+alias gm="git commit -a -m"
 alias grc="git rebase --continue"
 alias grs="git rebase --skip"
 alias gra="git rebase --abort"
+alias gsp="git stash pop"
 alias act="/Users/doortts/dev/play2/activator"
-alias http='python -m SimpleHTTPServer 8080 &'
+alias http='python -m SimpleHTTPServer 8888'
 
 export TERM="xterm-256color"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 
-export PATH=$PATH:~/bin:~/dev/play2:~/dev/play-2.1.0
-export JAVA_HOME=$(/usr/libexec/java_home)
+# play settings
+export PATH=/usr/local/bin:$PATH:~/bin:~/dev/play2:~/dev/play-2.1.0
+
+# npm global location
+export PATH=~/npm-global/bin:$PATH
+
+alias dif='/Applications/WebStorm.app/Contents/MacOS/webstorm diff'
+export JENV_ROOT=/usr/local/var/jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-

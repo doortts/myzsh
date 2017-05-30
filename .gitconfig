@@ -3,8 +3,10 @@
 	email = doortts@gmail.com
 [alias]
 	co = checkout
+	cp = cherry-pick
 	edit = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; vi `f`"
 	add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+	sf = show --pretty="format:" --name-only
 [pager]
     log = diff-highlight | less -F -X
     show = diff-highlight | less -F -X
@@ -12,4 +14,26 @@
 [push]
 	default = simple
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/bin/vim
+	excludesfile = /Users/doortts/.gitignore_global
+[rerere]
+	enabled = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[pull]
+	rebase = true
+[grep]
+	lineNumber = false
+[rebase]
+	autostash = true
